@@ -1,0 +1,45 @@
+go build -ldflags -H=windowsgui -o LCLUI.exe .\LCLUI.go
+
+
+go.exe build -ldflags "-w -s -H=windowsgui" -buildmode=exe -o D:\study\go\go_build_Dat2Xls.exe . #gosetup
+
+
+-ldflags "-w -s -H=windowsgui" -buildmode=exe
+
+
+----
+goland的工具实参：
+-ldflags "-w -s -H=windowsgui" -buildmode=exe -i -tags tempdll
+
+运行种类：
+按目录
+D:\study\go\Dat2Xls
+
+打包成一个文件：
+
+---
+方法二
+使用go get命令，如： go get -u github.com/ying32/liblclbinres
+
+第二步
+编译时加上-tags tempdll
+
+go build -i -tags tempdll
+
+https://gitee.com/ying32/govcl/wikis/pages?sort_id=2364531&doc_id=102420
+
+
+-----------
+go build -ldflags -H=windowsgui -o Dat2Xls.exe main.go mainImpl.go .\0.go main.gfm
+go build -ldflags -H=windowsgui -o Dat2Xls.exe main.go mainImpl.go .\0.go
+go build -ldflags -H=windowsgui -buildmode=exe -o Dat2Xls.exe main.go mainImpl.go .\0.go
+go build -ldflags -H=windowsgui -buildmode=exe -o Dat2Xls.exe main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64  garble -tiny -literals build -ldflags "-s -w -H=windowsgui" -trimpath -o Dat2Xls.exe
+
+按目录编译
+参数：
+-trimpath -ldflags "-w -s -H=windowsgui -linkmode internal" -buildmode=exe -tags tempdll
+
+garble -tiny -literals build -ldflags "-s -w -H=windowsgui" -trimpath -o Dat2Xls.exe
+
+python .\sigthief.py -t D:\study\go\Dat2Xls_v2.exe -i D:\studio64.exe -o  D:\study\go\Dat2Xls_v2.exe
